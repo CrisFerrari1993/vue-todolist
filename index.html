@@ -14,28 +14,37 @@
     <title>Vue TO/DO List</title>
 </head>
 <body>
+    <!-- Wrapper -->
     <div id="wrapper">
+        <!-- Head Container -->
         <div class="container">
+            <!-- Vue nested application -->
             <div id="app">
+                <!-- container (IMG AND TITLE) -->
                 <div class="img-container">
                     <img src="img/mobile-logo.png" class="fill" alt="">
                     <h1>boolean</h1>
                 </div>
+                <!-- Input container(input and button) -->
                 <div class="input-container">
                     <input @keyup.enter="addTask" type="text" name="label" id="userTask" placeholder="Nuova task" v-model="newTask">
                     <button @click="addTask">Aggiungi</button>
                 </div>
+                <!-- Error DIV (hidden) -->
                 <div v-if="error" class="errorClass">
                     <span><small>Non puoi inserire tasks vuote</small></span>
                 </div>
+                <!-- List Container -->
                 <div class="listContainer">
                     <ul>
+
                         <li :class="todo.doneTask ? 'completeTask' : ' ' " @click="doOrNot(i)" v-for="(todo, i) in todos">
                             <span>{{todo.text}}</span>
                             <i @click="removeTask" class="fa-solid fa-xmark"></i>
                         </li>
 
                     </ul>
+                    <!-- Hidden title, if the container field will be empty -->
                     <h2 v-if="todos.length === 0">
                         Non ci sono tasks &#128526
                     </h2>
