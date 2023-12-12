@@ -73,7 +73,7 @@ button {
     width: 80%;
 }
 /* ERROR */
-.error{
+.errorClass{
     display: flex;
     justify-content: center;
     color: red;
@@ -95,4 +95,13 @@ button {
     padding: 1rem 0;
     margin: 0 2rem;
     border-bottom: 1px solid rgb(197, 197, 197);
+    cursor: pointer;
+}
+.listContainer ul {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.completeTask span{
+    text-decoration-line: line-through;
 }
