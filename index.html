@@ -22,17 +22,17 @@
                     <h1>boolean</h1>
                 </div>
                 <div class="input-container">
-                    <input @keyup.enter="addTask" type="text" name="" id="" placeholder="Nuova task" v-model="newTask">
+                    <input @keyup.enter="addTask" type="text" name="label" id="userTask" placeholder="Nuova task" v-model="newTask">
                     <button @click="addTask">Aggiungi</button>
                 </div>
-                <div class="error">
-                    <span><small>Inserisci una task di almeno 5 caratteri</small></span>
+                <div v-if="error" class="errorClass">
+                    <span><small>Non puoi inserire tasks vuote</small></span>
                 </div>
                 <div class="listContainer">
                     <ul>
-                        <li v-for="(todo, i) in todos">
-                            {{todo.text}}
-                            <i class="fa-solid fa-xmark"></i>
+                        <li :class="todo.doneTask ? 'completeTask' : ' ' " @click="doOrNot(i)" v-for="(todo, i) in todos">
+                            <span>{{todo.text}}</span>
+                            <i @click="removeTask" class="fa-solid fa-xmark"></i>
                         </li>
 
                     </ul>
